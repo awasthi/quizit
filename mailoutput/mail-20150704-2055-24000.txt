@@ -1,0 +1,17 @@
+To: amitkawasthi@gbu.ac.in
+Subject: Password Changed
+From: "Administrator - Quiz Portal" <noeply@gmailll.com>
+Return-Path: <noeply@gmailll.com>
+Reply-To: "noeply@gmailll.com" <noeply@gmailll.com>
+X-Sender: noeply@gmailll.com
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Message-ID: <559848525d411@gmailll.com>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hi,
+ Your New Password is: 7480
+ Thanks
+
