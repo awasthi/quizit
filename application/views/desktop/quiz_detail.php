@@ -1,6 +1,23 @@
+<!-- =============================================== -->
 
-<div id="content" class="testd"> 
-<h1><?php if($title){ echo $title; } ?></h1><br>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1><?php if ($title) {  echo $title;} ?></h1>
+        
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Examples</a></li>
+            <li class="active">Blank page</li>
+        </ol> 
+        <div>.</div>
+        
+        
+        
+        
+        <div id="content" class="testd"> 
+
 <a href="<?php echo site_url('quiz');?>" class="button-error pure-button">Back</a>
 <br>
 <?php 
@@ -116,3 +133,7 @@ if($this->config->item('webcam_plugin')){
 
 
 	
+
+
+
+</div>      

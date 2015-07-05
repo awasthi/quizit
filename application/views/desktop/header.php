@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE 2 | Dashboard</title>
+        <title>Quizit | Admin Console</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.4 -->
         <link href="<?php echo Q_THEME_DIR; ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,9 +31,9 @@
                 <!-- Logo -->
                 <a href="index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>Q</b>T</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                    <span class="logo-lg"><b>Quiz</b>IT</span>
                 </a>
 
                 <!-- Header Navbar: style can be found in header.less -->
@@ -233,6 +233,11 @@
                                     </li>
                                 </ul>
                             </li>
+                            
+<?php
+$logged_in=$this->session->userdata('logged_in');
+$username="user";
+?>
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -309,9 +314,15 @@
                         </div>
                     </form>
                     <!-- /.search form -->
+  
+                  
+  <?php
+                    if($logged_in['su']=="1"){
+?>
+                    
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="header">MAIN NAVIGATION</li>
+                        <li class="header">MAIN NAVIGATION </li>
                         
                         <li class="treeview">
                             <a href="#">
@@ -453,6 +464,7 @@
                         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
                     </ul>
+                    <?php }?>
                 </section>
                 <!-- /.sidebar -->
             </aside>

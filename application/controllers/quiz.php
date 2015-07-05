@@ -16,6 +16,8 @@ class Quiz extends CI_Controller {
  function index($limit='0')
  {
  $logged_in=$this->session->userdata('logged_in');
+ $data['username'] = $logged_in['username'];
+ 
 if($logged_in['su']=="1"){
    $data['result'] = $this->quiz_model->quiz_list($limit);
    }else{
@@ -48,6 +50,7 @@ if(isset($_FILES['webcam'])){
  function add_new()
  {
  $logged_in=$this->session->userdata('logged_in');
+ $data['username'] = $logged_in['username'];
 if($logged_in['su']!="1"){
 exit('Permission denied');
 return;
@@ -75,6 +78,7 @@ return;
  function edit_quiz($id,$qselect='1')
  {
  $logged_in=$this->session->userdata('logged_in');
+ $data['username'] = $logged_in['username'];
 if($logged_in['su']!="1"){
 exit('Permission denied');
 return;

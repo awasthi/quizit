@@ -79,6 +79,7 @@ return;
 // add new user form
 function add_new(){
 $logged_in=$this->session->userdata('logged_in');
+  $data['username'] = $logged_in['username'];
 if($logged_in['su']!="1"){
 exit('Permission denied');
 return;
@@ -96,6 +97,7 @@ return;
 // insert user into database
 function insert_user(){
 $logged_in=$this->session->userdata('logged_in');
+  $data['username'] = $logged_in['username'];
 if($logged_in['su']!="1"){
 exit('Permission denied');
 return;
@@ -127,6 +129,8 @@ return;
 	// edit the user form
 	public function edit_user($user_id,$resultstatus=''){
 $logged_in=$this->session->userdata('logged_in');
+ $data['username'] = $logged_in['username'];
+ 
 if($logged_in['su']!="1"){
 exit('Permission denied');
 return;

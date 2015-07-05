@@ -1,26 +1,79 @@
-<div id="content" class="testd"> 
-<h1><?php if($title){ echo $title; } ?></h1><br>
-<?php if($logged_in['su'] =="1"){ ?>
-<a href="<?php echo site_url('user_data');?>" class="button-error pure-button">Back</a>
-<?php } ?>
-<?php 
-if($resultstatus){ echo "<div id='result' style='text-align:center ;> <font color='#fff' size='4'>".$resultstatus."</font></div>"; }
- ?>
-<div class="formbox">
-<form method="post" action="<?php echo site_url('user_data/update_user/'.$user_id);?>">
-<!-- form validation errors -->
-			 <?php echo validation_errors(); ?>
-<input type="text" name="username" placeholder="Username" value="<?php echo $user['username']; ?>" <?php	if($su=="0"){ echo "readonly='readonly'"; }?> > </td>
-<input type="text" name="first_name" placeholder="First Name" value="<?php echo $user['first_name']; ?>"> </td>
-	<input type="text" name="last_name" placeholder="Last Name" value="<?php echo $user['last_name']; ?>"> </td>
+<!-- =============================================== -->
 
-		<input type="text" name="user_email" placeholder="Email" value="<?php echo $user['email']; ?>"  <?php	if($su=="0"){ echo "readonly='readonly'"; }?> > 
-	<input type="password" name="user_password" placeholder="Password (Optional)" autocomplete="off" > 
-			<input type="password" name="confirm_password" placeholder="Confirm Password (Optional)" autocomplete="off">
-			
-	<input type="hidden" name="user_credit"  placeholder="Credit" value="0"  <?php	if($su=="0"){ echo "readonly='readonly'"; }?> >
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+                   <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Examples</a></li>
+            <li class="active">Blank page</li>
+          </ol> 
+            <div>.</div>
+            <!--AWA-->
+            <?php $logged_in=$this->session->userdata('logged_in');?>
+            <h1><?php if($title){ echo $title; } ?></h1><br>
+            
+            <?php if($logged_in['su'] =="1"){ ?>
+                    <a href="<?php echo site_url('user_data');?>" class="button-error pure-button">Back</a>
+            <?php } ?>
 
-		<select name="user_group">
+
+
+
+    
+    <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">Change required field and save.</h3>
+                  <h4>
+                      <?php 
+                        if($resultstatus){ echo "<div id='result' style='text-align:center ;> <font color='#fff' size='4'>".$resultstatus."</font></div>"; }
+                        ?>
+                  </h4>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                 <form method="post" action="<?php echo site_url('user_data/update_user/'.$user_id);?>">
+         	 <?php echo validation_errors(); ?>
+                <form role="form">
+                  <div class="box-body">
+                      <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control" name="username" id="username" placeholder="username is your identity." value="<?php echo $user['username']; ?>" <?php	if($su=="0"){ echo "readonly='readonly'"; }?> >
+                      </div>
+                      
+                      <div class="form-group">
+                      <label for="First_Name">First Name</label>
+                      <input type="text" class="form-control" name="first_name" id="inputFirstName" placeholder="User's First Name" value="<?php echo $user['first_name']; ?>">
+                      
+                      <label for="Last_Name">Last Name</label>
+                      <input type="text" class="form-control" name="last_name" id="inputLastName" placeholder="User's Last Name" value="<?php echo $user['last_name']; ?>">
+                      </div>
+                    
+                      <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Enter email" value="<?php echo $user['email']; ?>">
+                      </div>
+                    
+                      <div class="form-group">
+                      <label for="user_password">Password</label>
+                      <input type="password" class="form-control" id="user_password" name="user_password"  placeholder="Password (Optional)" autocomplete="off">
+                      
+                      <label for="confirm_password">Confirm Password</label>                      
+                      <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password (Optional)" autocomplete="off">
+                      </div>
+                    
+                      <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      <input type="file" id="exampleInputFile">
+                      <p class="help-block">Image in jpeg format and of size 160 x 160.</p>
+                    </div>
+                    
+                      <!--<div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Check me out
+                      </label>
+                      -->
+                      <select name="user_group">
 					<?php foreach($allgroups as $key => $group){ ?>
 						<?php if($su=="1"){ ?>						
 						<option <?php if($user['gid'] == $group['gid']){ echo "selected"; } ?> value="<?php echo $group['gid']; ?>">Group: <?php echo $group['group_name']; ?></option>
@@ -45,18 +98,22 @@ if($resultstatus){ echo "<div id='result' style='text-align:center ;> <font colo
 		<?php
 		}
 		?>
-	<input type="submit" value="Submit" class="button-warning pure-button"> 
-		<br><br>
-			
+                    </div>
+                    
+                      <input type="hidden" name="user_credit"  placeholder="Credit" value="0"  <?php	if($su=="0"){ echo "readonly='readonly'"; }?> >
 
-</form>
-</div>
+		
+                      
+                  </div><!-- /.box-body -->
 
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <!--<input type="submit" value="Submit" class="button-warning pure-button"> -->
+                  </div>
+                </form>
+              </div>
+        </div>
 
-
-
-
-</div>
 
 
 
@@ -121,3 +178,8 @@ document.getElementById('show_payu_div').style.visibility="hidden";
 
 
 
+
+
+          
+        </section>
+</div><!-- /.content-wrapper -->
